@@ -1,3 +1,5 @@
+'use strict';
+
 export default class Ball{
     constructor() {
         this.posX = 10;

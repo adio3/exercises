@@ -1,10 +1,13 @@
+'use strict';
 import Ball from './ball.js';
 import Paddle from './paddle.js';
 
-console.log('pong');
 const ball = new Ball()
 const paddleLeft = new Paddle('l')
 const paddleRight = new Paddle('r')
+
+const startButton = document.querySelector('button');
+
 
 class Game{
     constructor() {
@@ -14,6 +17,8 @@ class Game{
         this.ctx = this.canvas.getContext('2d');
         this.scoreLeft = 0
         this.scoreRight = 0
+        this.player1 = document.getElementById('P1')
+        this.player2 = document.getElementById('P2')
     }
     resetCanvas(){
         this.ctx.fillStyle = 'black';
@@ -46,26 +51,46 @@ class Game{
         this.ctx.beginPath();
         this.ctx.font = "20px Arial";
         this.ctx.fillStyle = "white";
-        this.ctx.fillText(`${this.scoreLeft}`, (this.canvas.width / 2) - 60, 50);
+        this.ctx.fillText(`${this.scoreLeft}`, (this.canvas.width / 2) -50, 50);
+        this.ctx.textAlign = "left";
     }
     createScoreRight(){
         this.ctx.beginPath();
         this.ctx.font = "20px Arial";
         this.ctx.fillStyle = "white";
-        this.ctx.fillText(`${this.scoreRight}`, (this.canvas.width / 2) + 50, 50);
+        this.ctx.fillText(`${this.scoreRight}`, (this.canvas.width / 2) +50, 50);
+        this.ctx.textAlign = "right";
+    }
+    createPlayer(){
+        this.ctx.beginPath();
+        this.ctx.font = "16px Arial";
+        this.ctx.fillStyle = "white";
+        this.ctx.fillText(`${this.player1.value}`, this.canvas.width / 4, 50);
+        this.ctx.textAlign = "left";
+        this.ctx.beginPath();
+        this.ctx.font = "16px Arial";
+        this.ctx.fillStyle = "white";
+        this.ctx.fillText(`${this.player2.value}`, this.canvas.width / 4 * 3, 50);
+        this.ctx.textAlign = "right";
     }
     play(){
 
         setInterval(() => {
             game.resetCanvas();
+            paddleLeft.listenerDown
+            paddleLeft.listenerUp
+            paddleLeft.executeMoves()
+            paddleRight.listenerDown
+            paddleRight.listenerUp
+            paddleRight.executeMoves()
             game.createScoreLeft()
             game.createScoreRight()
             game.createMiddleLine()
+            game.createPlayer()
             ball.render();
             ball.move()
             paddleLeft.render()
             paddleRight.render()
-            paddleRight.listener
             game.checkCollisions()
         }, 17)
     }
@@ -73,5 +98,5 @@ class Game{
 }
 
 const game = new Game()
-game.play()
 
+startButton.addEventListener('click', () => game.play())
