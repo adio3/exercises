@@ -1,0 +1,56 @@
+:root {
+  --background-color: #5d5d5d;
+  --border-color: #462921;
+  --numbers-background-color: #7d694c;
+  --light-tile-color: #b5915f;
+  --dark-tile-color: #441a03;
+  --chessboard-tile-width: 70px;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+}
+
+.text {
+  color: var(--message-color);
+}
+
+.board {
+  width: calc(var(--chessboard-tile-width) * 8);
+  border: 49px solid var(--border-color);
+  display: grid;
+  grid-template-rows: 40px repeat(8, var(--chessboard-tile-width)) 40px;
+}
+
+.row {
+  display: grid;
+  width: var(--chessboard-tile-width);
+  grid-template-columns: repeat(8, var(--chessboard-tile-width));
+}
+
+.numbered_column {
+  width: var(--chessboard-tile-width);
+  background-color: var(--numbers-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  width: var(--chessboard-tile-width);
+  height: 70px;
+  background-color: var(--dark-tile-color);
+  color: var(--font-color);
+}
+
+.row:nth-child(even) .column:nth-child(odd),
+.row:nth-child(odd) .column:nth-child(even) {
+  background-color: var(--light-tile-color);
+}

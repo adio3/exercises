@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pong</title>
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #615551;
-        }
-        h1 {
-            font-size: 50px;
-            text-align: center;
-        }
-        h2 {
-            font-size: 18px;
-            text-align: center;
-        }
-        canvas{
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
+      body {
+        font-family: "Nunito", sans-serif;
+        background-color: #615551;
+      }
+      h1 {
+        font-size: 50px;
+        text-align: center;
+      }
+      h2 {
+        font-size: 18px;
+        text-align: center;
+      }
+      canvas {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
     </style>
     <h1>Pong</h1>
-    <h2>Player 1 <input id="P1" maxlength="20"> Player 2 <input id="P2" maxlength="20"> <button id="startButton">Start Game</button></h2>
+    <h2>
+      Player 1 <input id="P1" maxlength="20" /> Player 2
+      <input id="P2" maxlength="20" />
+      <button id="startButton">Start Game</button>
+    </h2>
 
     <canvas width="700" height="500"></canvas>
     <script src="./ball.js" type="module" charset="utf-8"></script>
     <script src="./paddle.js" type="module" charset="utf-8"></script>
     <script src="./app.js" type="module" charset="utf-8"></script>
-</body>
+  </body>
 </html>
