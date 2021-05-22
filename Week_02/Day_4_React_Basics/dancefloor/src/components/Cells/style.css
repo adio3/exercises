@@ -1,0 +1,22 @@
+#cell {
+    /* background-color: rgb(212, 33, 218); */
+    height: 70px;
+    width: 70px;
+    border: 1px solid black;
+}
+
+.green {
+    background-color: rgb(33, 218, 33)
+}
+.red {
+    background-color: rgb(218, 33, 33)
+}
+.blue {
+    background-color: rgb(33, 33, 218)
+}
+.yello {
+    background-color: rgb(218, 200, 33)
+}
+.violet {
+    background-color: rgb(212, 33, 218)
+}

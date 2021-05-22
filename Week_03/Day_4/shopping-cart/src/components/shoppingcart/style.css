@@ -1,0 +1,75 @@
+#shopping-cart {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(252, 252, 252);
+    border-radius: 10px;
+    border: 2px solid rgb(240, 240, 240);
+    height: 500px;
+    width: 700px;
+}
+
+#shopping-cart tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#shopping-cart tr:hover {
+    background-color: rgb(156, 191, 214);
+}
+
+#shopping-cart #cart-table {
+    border: 2px solid rgb(240, 240, 240);
+    border-collapse: collapse;
+}
+
+#cart-table {
+    align-self: center;
+    width: 95%;
+    max-height: 80%;
+}
+th {
+    border: 2px solid rgb(240, 240, 240);
+    background-color: rgb(156, 181, 214);
+}
+
+#table-footer {
+    background-color: rgb(156, 181, 214);
+}
+
+td {
+    border: 2px solid rgb(240, 240, 240);
+    max-width: 38%;
+}
+
+#close-cart {
+    align-self: flex-end;
+    margin-right: 2%;
+    margin-top: 2%;
+    border-radius: 100%;
+    border: 0px solid white;
+    background-color: rgb(114, 113, 113);
+    color: white;
+}
+#cart-title {
+    margin: 1%;
+    font-weight: 800;
+    align-self: flex-start;
+    margin-left: 3%;
+}
+
+#center-text {
+    text-align: center;
+}
+
+#cart-top {
+    background: rgb(204, 204, 204);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
