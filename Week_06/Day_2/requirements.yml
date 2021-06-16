@@ -1,0 +1,10 @@
+name: CookingBook
+dependencies:
+  - python=3.9
+  - pip=21.1
+  - pip:
+      - django==3.2
+      - djangorestframework==3.12
+      - djangorestframework_simplejwt==4.7
+      - drf-yasg==1.20
+      - mixer==7.1

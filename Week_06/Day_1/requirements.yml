@@ -1,0 +1,6 @@
+name: receipes
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+      - django==3.2.4

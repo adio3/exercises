@@ -1,0 +1,42 @@
+version: '3'
+services:
+  app:
+    image: backend_motion:latest
+#    tty: true
+    restart: always
+    ports:
+      - 8000:8000
+    env_file:
+      - ./env/dev.env
+    volumes:
+      - ./app:/app
+      - static-files:/static-files
+    command: "sh /scripts/dev.sh"
+#    expose:
+#      - 8000
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5433:5432
+    env_file:
+      - ./env/dev.env
+    volumes:
+    - ./postgres-data:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static-files:/static-files
+    depends_on:
+      - app
+
+volumes:
+  postgres_volume:
+  static-files:
+
