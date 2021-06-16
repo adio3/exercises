@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  app:
+    image: registry.gitlab.propulsion-home.ch/nenad-haefeli/daily-exercises/-/tree/master/Week_07/Day_2/backend_motion_dockerized
+    env_file:
+      - ./env/prod.env
+    command: "sh /scripts/run.sh"
+    volumes:
+    - static-files:/static-files
+    depends_on:
+      - postgres
+
+
+  postgres:
+    image: postgres:latest
+    env_file:
+      - ./env/prod.env
+    volumes:
+    - postgres_volume:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static-files:/static-files
+
+
+volumes:
+  postgres_volume:
+  static-files:

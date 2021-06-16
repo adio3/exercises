@@ -24,16 +24,12 @@ RUN echo "source activate backend_motion" >~/.bashrc
 # pass all the files and folders from local folder to image
 COPY ./app /app
 COPY ./scripts /scripts
-RUN chmod +x ./scripts*
+RUN chmod +x /scripts*
 
 # set the working directory to /app for whenever you login into your container
 WORKDIR /app
 
 #CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
-FROM nginx:latest
-
-RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx/default.conf /etc/nginx/conf.d/
 
 
